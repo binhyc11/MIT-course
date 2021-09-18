@@ -5,6 +5,7 @@
 num = int (input('Enter an interger: '))
 root = 0
 pwr = 1
+flag = False
 
 while pwr < 6:
     while root ** pwr <= abs (num):
@@ -17,7 +18,9 @@ while pwr < 6:
                 print (root, - root, pwr)
             elif num > 0 and pwr % 2 != 0:
                 print (root, pwr)
+            flag = True
         root += 1
     root = 0
     pwr +=1
- 
+    if flag == False:
+        print('always have pairs')
