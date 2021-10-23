@@ -1,33 +1,33 @@
-# import random
+import random
 import string
 
-# WORDLIST_FILENAME = "words.txt"
+WORDLIST_FILENAME = "words.txt"
 
 
-# def load_words():
-#     """
-#     Returns a list of valid words. Words are strings of lowercase letters.
+def load_words():
+    """
+    Returns a list of valid words. Words are strings of lowercase letters.
     
-#     Depending on the size of the word list, this function may
-#     take a while to finish.
-#     """
-#     print("Loading word list from file...")
-#     # inFile: file
-#     inFile = open(WORDLIST_FILENAME, 'r')
-#     # line: string
-#     line = inFile.readline()
-#     # wordlist: list of strings
-#     wordlist = line.split()
-#     print("  ", len(wordlist), "words loaded.")
-#     return wordlist
-# def choose_word(wordlist):
-#     """
-#     wordlist (list): list of words (strings)
+    Depending on the size of the word list, this function may
+    take a while to finish.
+    """
+    print("Loading word list from file...")
+    # inFile: file
+    inFile = open(WORDLIST_FILENAME, 'r')
+    # line: string
+    line = inFile.readline()
+    # wordlist: list of strings
+    wordlist = line.split()
+    print("  ", len(wordlist), "words loaded.")
+    return wordlist
+def choose_word(wordlist):
+    """
+    wordlist (list): list of words (strings)
     
-#     Returns a word from wordlist at random
-#     """
-#     return random.choice(wordlist)
-# wordlist = load_words()
+    Returns a word from wordlist at random
+    """
+    return random.choice(wordlist)
+wordlist = load_words()
 
 def input_check (guess, letters_guessed):
     '''
@@ -129,6 +129,8 @@ def print_statement (remaining_guesses, remaining_warnings, available_letters):
         print ('You have', remaining_guesses, 'guesses and', remaining_warnings ,'warning left.\n')
     if remaining_guesses <= 1 and remaining_warnings <= 1:
         print ('You have', remaining_guesses, 'guess and', remaining_warnings ,'warning left.\n')
+    if remaining_guesses <= 1 and remaining_warnings > 1:
+        print ('You have', remaining_guesses, 'guess and', remaining_warnings ,'warning left.\n')
     if remaining_guesses > 0:
         print ('Available letters:', available_letters)
     
@@ -208,4 +210,12 @@ def hangman(secret_word):
         score = remaining_guesses * number_unique
         print ('Congratulations, you won! \n Your total score for this game is:', score)
 
-hangman ('edge')
+
+if __name__ == "__main__":
+    # pass
+
+    # To test part 2, comment out the pass line above and
+    # uncomment the following two lines.
+    
+    secret_word = choose_word(wordlist)
+    hangman(secret_word)
