@@ -1,0 +1,20 @@
+def sumDigits(s):
+    """
+    Assumes s is a string
+    Returns the sum of the decimal digits in s
+    For example, if s is 'a2b3c' it returns 5
+    """
+    counter = 0
+    for i in s:
+        if i.isalpha() == False:
+            # i = int(i)
+            counter += i
+    return counter
+
+
+try:
+    s = sumDigits('a2b3c')
+    print ('The sum is:', s)
+except:
+    print ('There is a bug')
+print ('Now here')
